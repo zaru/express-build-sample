@@ -1,9 +1,14 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const randomstring = require("randomstring");
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  const str = randomstring.generate({
+    length: 12,
+    charset: 'alphabetic'
+  });
+  res.send(str)
 })
 
 app.listen(port, () => {
